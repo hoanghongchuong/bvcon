@@ -1,0 +1,22 @@
+@media (max-width: 767px){
+	.content-project{
+		height: 200px;
+	}
+	.show-popup .img-show{
+		width: 100%;
+	}
+}
+@media (min-width: 768px) {
+	
+}
+@media (min-width: 768px) and (max-width: 999px){
+	.menu{
+		margin-top: 20px;
+	}
+}
+@media (min-width: 1000px) {
+	
+}
+@media (min-width: 1200px){
+	
+}
