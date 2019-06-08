@@ -80,7 +80,7 @@
         .live{padding:0 0 0 12px}
     </style>
 
-<section class="cart">
+<section class="cart" style="margin-bottom: 20px;">
     <div class="container">
         <form action="{{route('postOrder')}}" method="post" id="form-post-order" accept-charset="utf-8">
             <input type="hidden" name="_token" value="{{csrf_token()}}">        

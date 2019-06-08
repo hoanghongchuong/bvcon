@@ -200,14 +200,14 @@
 				    </div> -->
 			    	<div class="form-group">
 					    <label>
-				        	<input type="checkbox" name="noibat" {!! (!isset($data->noibat) || $data->noibat==1)?'checked="checked"':'' !!}> Nổi bật
+				        	<input type="checkbox" name="noibat" {!! (!isset($data->noibat) || $data->noibat==1)?'checked="checked"':'' !!}> Khuyến mại
 				    	</label>
 				    </div>
-				    <!-- <div class="form-group">
+				    <div class="form-group">
 					    <label>
-				        	<input type="checkbox" name="spbc" {!! (!isset($data->spbc) || $data->spbc==1)?'checked="checked"':'' !!}> Sale off
+				        	<input type="checkbox" name="spbc" {!! (!isset($data->spbc) || $data->spbc==1)?'checked="checked"':'' !!}> Sản phẩm bán chạy
 				    	</label>
-				    </div> -->
+				    </div>
 			    </div>
 			    <div class="clearfix"></div>
 			    <div class="box-footer">

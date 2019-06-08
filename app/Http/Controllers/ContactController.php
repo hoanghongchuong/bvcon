@@ -67,12 +67,12 @@ class ContactController extends Controller {
                 'address' => Request::input('address'),                
                 'content' => Request::input('content')
             ];
-            Mail::send('templates.sendmail', $value, function ($msg) {
-                $setting = Cache::get('setting');
-                $msg->from(Request::input('email'),  'WELLTECH');
-                $msg->to($setting->email, 'Admin')->subject('Hệ thống thông báo');
-                // $msg->to(Request::input('email'), Request::input('full_name'))->subject('Đơn đặt hàng');
-            });
+            // Mail::send('templates.sendmail', $value, function ($msg) {
+            //     $setting = Cache::get('setting');
+            //     $msg->from(Request::input('email'),  'WELLTECH');
+            //     $msg->to($setting->email, 'Admin')->subject('Hệ thống thông báo');
+                
+            // });
 		$data->save();
 		return back()->with(['message' => __('message.post_contact_success')]);
 
@@ -161,27 +161,27 @@ class ContactController extends Controller {
         }               
         $bill->detail = json_encode($detail);
         if($total > 0){
-            try {
-                // $data = [
-                //     'hoten' => $req->full_name,
-                //     'diachi' => $req->address,
-                //     'dienthoai' => $req->phone,
-                //     'email' => $req->email,
-                //     'noidung' => $req->get('note')
-                // ];
-                $data = $bill->toArray();
+            // try {
+            //     $data = [
+            //         'hoten' => $req->full_name,
+            //         'diachi' => $req->address,
+            //         'dienthoai' => $req->phone,
+            //         'email' => $req->email,
+            //         'noidung' => $req->get('note')
+            //     ];
+            //     $data = $bill->toArray();
                 
-                // $detail_orders = json_decode($data['detail']);
+            //     $detail_orders = json_decode($data['detail']);
                 
-                // return view('templates.guidonhang', compact('data','detail_orders'));
-                Mail::send('templates.guidonhang', $data, function ($msg) {
-                    $setting = Cache::get('setting');
-                    $msg->from(Request::input('email'), 'Welltech.vn');
-                    $msg->to($setting->email, 'WELLTECH')->subject('Đơn hàng');
-                });
-            } catch (Exception $e) {
-                echo " khong gui dc email";
-            }
+            //     return view('templates.guidonhang', compact('data','detail_orders'));
+            //     Mail::send('templates.guidonhang', $data, function ($msg) {
+            //         $setting = Cache::get('setting');
+            //         $msg->from(Request::input('email'), 'Welltech.vn');
+            //         $msg->to($setting->email, 'WELLTECH')->subject('Đơn hàng');
+            //     });
+            // } catch (Exception $e) {
+            //     echo " khong gui dc email";
+            // }
             $bill->save();
         }
         else{

@@ -26,20 +26,14 @@ class IndexController extends Controller {
 	public function __construct() {
 
 		$setting = DB::table('setting')->select()->where('id', 1)->get()->first();
-
 		$dichvu = DB::table('news')->select()->where('status', 1)->where('com', 'dich-vu')->orderBy('stt', 'asc')->get();
-
-		$about = DB::table('about')->where('com', 'gioi-thieu')->get();
-		
+		$about = DB::table('about')->where('com', 'gioi-thieu')->get();		
 		Cache::forever('setting', $setting);
-
-		
 		session_start();
 		// App::setLocale(Session::get('locale'));
 		if (Session::has('locale')) {
 			App::setLocale(Session::get('locale'));
 		}
-
 	}
 
 	/**
@@ -181,16 +175,18 @@ class IndexController extends Controller {
 	}
 	public function getProduct(Request $req)
 	{
-		$cate_pro = ProductCate::where('status',1)->where('parent_id',0)->orderby('stt','asc')->get();
+		$lang = Session::get('locale');
+		$cate_pro = ProductCate::where('status',1)->where('parent_id',0)->where('noibat',1)->orderby('stt','asc')->get();
+		$productSaleOff = Products::where('status',1)->where('spbc',1)->where('com','san-pham')->orderBy('id','desc')->take(8)->get();
+		$productHot = Products::where('status',1)->where('noibat',1)->where('com','san-pham')->orderBy('id','desc')->take(8)->get();
 		$partners = DB::table('partner')->get();
-		$products = DB::table('products')->where('status',1)->where('com','san-pham')->paginate(18);
 		$com='san-pham';		
 		$title = "Sản phẩm";
 		$keyword = "Sản phẩm";
 		$description = "Sản phẩm";
 		// $img_share = asset('upload/hinhanh/'.$banner_danhmuc->photo);
 		
-		return view('templates.product_tpl', compact('title','keyword','description','products', 'com','cate_pro','partners'));
+		return view('templates.product_tpl', compact('title','keyword','description','products', 'com','cate_pro','partners','lang','productSaleOff','productHot'));
 	}
 
 

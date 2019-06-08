@@ -200,10 +200,14 @@
 				    
 			    	<div class="form-group">
 					    <label>
-				        	<input type="checkbox" name="noibat"> Nổi bật
+				        	<input type="checkbox" name="noibat"> Khuyến mại
 				    	</label>
 				    </div>
-				    
+				    <div class="form-group">
+					    <label>
+				        	<input type="checkbox" name="spbc"> Sản phẩm bán chạy
+				    	</label>
+				    </div>
 			    </div>
 			    <div class="clearfix"></div>
 			    <div class="box-footer">

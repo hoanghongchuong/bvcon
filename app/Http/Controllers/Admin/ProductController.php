@@ -102,7 +102,7 @@ class ProductController extends Controller
         }else{
             $product->noibat = 0;
         }
-        
+        $product->spbc = $request->spbc ? 1 : 0;
         $product->user_id = Auth::user()->id;
         if(!empty($request->properties)){
             $product->properties = implode('###',$request->properties);
@@ -163,7 +163,15 @@ class ProductController extends Controller
                 $data->update();
                 return redirect('backend/product?type='.$com)->with('status','Cập nhật thành công !');
             }
-            
+            if($request->get('spbc')>0){
+                if($data->spbc == 1){
+                    $data->spbc = 0; 
+                }else{
+                    $data->spbc = 1; 
+                }
+                $data->update();
+                return redirect('backend/product?type='.$com)->with('status','Cập nhật thành công !');
+            }
             $product_id = $data->id;
             if($request->get('delete_bg')>0){
                 $background='upload/product/'.$request->get('delete_bg');
@@ -273,7 +281,7 @@ class ProductController extends Controller
             }else{
                 $product->noibat = 0;
             }
-            
+            $product->spbc = $request->spbc ? 1 : 0;
             $product->user_id       = Auth::user()->id;
 
             // dd($product->description);
