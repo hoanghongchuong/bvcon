@@ -24,6 +24,14 @@
                         </ul>
                     </li>
                     <li><a href="{{url('tin-tuc')}}">{{trans('label.news')}}</a></li>
+                    <li><a href="{{url('du-an')}}">{{trans('label.project')}}</a></li>
+                    <li>
+                        <a href="{{url('san-pham')}}">{{trans('label.library')}}</a>
+                        <ul class="vk-menu__child">
+                            <li><a href="{{url('video')}}">Video</a></li>
+                            <li><a href="">Hình ảnh</a></li>                                               
+                        </ul>
+                    </li>
                     <li><a href="{{url('bang-gia')}}">{{trans('label.banggia')}}</a></li>
                     <li><a href="{{url('lien-he')}}">{{trans('label.contact')}}</a></li>
                     <li><a href="{{url('gio-hang')}}">{{trans('label.cart')}}</a></li>

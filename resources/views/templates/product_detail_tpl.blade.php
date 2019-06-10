@@ -20,25 +20,34 @@
 <div class="box-content-detail">
     <div class="container">
         <div class="row">
-            <div class="col-md-5 col-xs-12">    
-                @if(count($albums) > 1)
-                    @foreach($albums as $album)            
-                    <div class="owl-slider ">                       
+            <div class="col-md-5 col-xs-12">
+                <div class="owl-slider ">
+                    @if(count($albums) > 1)
+                        @foreach($albums as $album)  
                         <div class="item img-slider"><img src="{{asset('upload/hasp/'.$album['photo'])}}" alt="image"  draggable="false"/></div>
-                    </div>
-                    @endforeach
-                @else
-                    <div class="item img-slider"><img src="{{asset('upload/product/'.$data['photo'])}}" alt="image"  draggable="false"/></div>
-                @endif 
-                @if(count($albums) > 1)
+                        @endforeach
+                        @else
+                        <div class="item img-slider"><img src="{{asset('upload/product/'.$data['photo'])}}" alt="image"  draggable="false"/></div>
+                    @endif 
+                    <!-- <div class="item img-slider"><img src="{{asset('public/images/duan2.jpg')}}" alt="image"  draggable="false"/></div> -->
+                    <!-- <div class="item img-slider"><img src="images/p1.jpg" alt="image"  draggable="false"/></div>
+                    <div class="item img-slider"><img src="images/p1.jpg" alt="image"  draggable="false"/></div> -->
+                    
+                </div>
+                <div class="thumbnails-wrapper">
                     @foreach($albums as $album)
-                    <div class="thumbnails-wrapper">                    
-                        <div class="thumbnail"><a href="#">
-                            <img src="{{asset('upload/hasp/'.$album['photo'])}}" alt="image"  draggable="false"/></a>
-                        </div>
+                    <div class="thumbnail"><a href="#">
+                        <img src="{{asset('upload/hasp/'.$album['photo'])}}" alt="image"  draggable="false"/></a>
                     </div>
                     @endforeach
-                @endif
+                    <!-- <div class="thumbnail">
+                        <a href="#"><img src="images/p1.jpg" alt="image"  draggable="false"/></a>
+                    </div>
+                    <div class="thumbnail">
+                        <a href="#"><img src="images/p1.jpg" alt="image"  draggable="false"/></a>
+                    </div> -->
+                </div>    
+                
             </div>
             <div class="col-md-7 col-xs-12">
                 <h1 class="product_name">{{$data['name_'.$lang]}}</h1>

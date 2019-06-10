@@ -1,5 +1,9 @@
 @extends('index')
 @section('content')
+<?php
+    $setting = Cache::get('setting');
+    $sliders = \App\Slider::where('com','gioi-thieu')->where('status',1)->get();
+?>
 <div class="content-home-cate">
     <div class="container">
         <div class="row">
@@ -7,70 +11,37 @@
                 <h3 class="title-cate"><i class="fa fa-align-justify"></i> Danh mục sản phẩm</h3>
                 <div class="list-cate-home">
                     <ul class="menu-sidebar">
+                        @foreach($categories as $category)
                         <li>
-                            <a href=""><i class="fa fa-caret-right"></i> Đệm bông ép</a>
-                            <ul class="menu-sidebar-child">
+                            <a href=""><i class="fa fa-caret-right"></i> {{$category['name_'.$lang]}}</a>
+                            <!-- <ul class="menu-sidebar-child">
                                 <li><a href="#" title="KỆ TIVI">Danh mục 1</a></li>
                                 <li><a href="#" title="KỆ TIVI">Danh mục 1</a></li>
                                 <li><a href="#" title="KỆ TIVI">Danh mục 1</a></li>
                                 <li><a href="#" title="KỆ TIVI">Danh mục 1</a></li>
                                 <li><a href="#" title="KỆ TIVI">Danh mục 1</a></li>
                                 
-                            </ul>
+                            </ul> -->
                         </li>
-                        <li><a href=""><i class="fa fa-caret-right"></i> Đệm lò xo</a></li>
-                        <li><a href=""><i class="fa fa-caret-right"></i> Đệm cao su</a></li>
-                        <li><a href=""><i class="fa fa-caret-right"></i> Đệm hàn quốc</a></li>
-                        <li><a href=""><i class="fa fa-caret-right"></i> Chăn ga gối</a></li>
-                        <li><a href=""><i class="fa fa-caret-right"></i> Chiếu trúc</a></li>
-                        <li><a href=""><i class="fa fa-caret-right"></i> Chiếu điều hòa</a></li>
-                        <li>
-                            <a href=""><i class="fa fa-caret-right"></i> Chăn lông cừu</a>
-                            <ul class="menu-sidebar-child">
-                                <li><a href="#" title="KỆ TIVI">Danh mục 1</a></li>
-                                <li><a href="#" title="KỆ TIVI">Danh mục 1</a></li>
-                                <li><a href="#" title="KỆ TIVI">Danh mục 1</a></li>
-                                <li><a href="#" title="KỆ TIVI">Danh mục 1</a></li>
-                                <li><a href="#" title="KỆ TIVI">Danh mục 1</a></li>
-                                
-                            </ul>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
                 <h3 class="title-cate">Hỗ trợ trực tuyến</h3>
                 <div class="box-support">
+                    @foreach($supports as $sp)
                     <div class="media">
                         <a class="pull-left" href="">
-                            <img class="media-object" src="images/face.png" alt="Image">
+                            <img class="media-object" src="{{asset('upload/hinhanh/'.$sp->photo)}}" alt="Image">
                         </a>
                         <div class="media-body">
-                            <h4 class="media-heading">MS.Phương</h4>
-                            <p>Nhân viên tư vấn</p>
-                            <p>0987654321</p>
+                            <h4 class="media-heading">{{$sp['name_'.$lang]}}</h4>
+                            <p>{{$sp['mota_'.$lang]}}</p>
+                            <p>{{$sp['phone']}}</p>
                         </div>
                     </div>
-                    <div class="media">
-                        <a class="pull-left" href="">
-                            <img class="media-object" src="images/face.png" alt="Image">
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading">MS.Phương</h4>
-                            <p>Nhân viên tư vấn</p>
-                            <p>0987654321</p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <a class="pull-left" href="">
-                            <img class="media-object" src="images/face.png" alt="Image">
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading">MS.Phương</h4>
-                            <p>Nhân viên tư vấn</p>
-                            <p>0987654321</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                <h3 class="title-cate">Khuyến mại</h3>
+                <!-- <h3 class="title-cate">Khuyến mại</h3>
                 <div class="box-saleof">
                     <a href="" title=""><img src="images/km1.jpg" alt=""></a>
                     <a href="" title=""><img src="images/km1.jpg" alt=""></a>
@@ -78,87 +49,37 @@
                     <a href="" title=""><img src="images/km1.jpg" alt=""></a>
                     <a href="" title=""><img src="images/km1.jpg" alt=""></a>
                     <a href="" title=""><img src="images/km1.jpg" alt=""></a>
-                </div>
+                </div> -->
                 <h3 class="title-cate">Tin tức mới</h3>
                 <div class="box-news-home">
+                    @foreach($news as $n)
                     <div class="item">
                         <div class="col-md-2 col-xs-2 pdl-0 pdr-0">
                             <div class="created-date">
                                 <div class="box-date">
-                                    <span>03 <br>TH06</span>
+                                    <span>{{date('d', strtotime($n->created_at))}} <br>TH{{date('m', strtotime($n->created_at))}}</span>
                                 </div>
                             </div>  
                         </div>
                         <div class="col-md-10 col-xs-10">
-                            <div class="name_news">Tin tức 1</div>
+                            <div class="name_news"><a href="{{url('tin-tuc/'.$n['alias_vi'].'.html')}}" title="">{{$n['name_'.$lang]}}</a></div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="col-md-2 col-xs-2 pdl-0 pdr-0">
-                            <div class="created-date">
-                                <div class="box-date">
-                                    <span>03 <br>TH06</span>
-                                </div>
-                            </div>  
-                        </div>
-                        <div class="col-md-10 col-xs-10">
-                            <div class="name_news">Tin tức 1</div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-md-2 col-xs-2 pdl-0 pdr-0">
-                            <div class="created-date">
-                                <div class="box-date">
-                                    <span>03 <br>TH06</span>
-                                </div>
-                            </div>  
-                        </div>
-                        <div class="col-md-10 col-xs-10">
-                            <div class="name_news">Tin tức 1</div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-md-2 col-xs-2 pdl-0 pdr-0">
-                            <div class="created-date">
-                                <div class="box-date">
-                                    <span>03 <br>TH06</span>
-                                </div>
-                            </div>  
-                        </div>
-                        <div class="col-md-10 col-xs-10">
-                            <div class="name_news">Tin tức 1</div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-md-2 col-xs-2 pdl-0 pdr-0">
-                            <div class="created-date">
-                                <div class="box-date">
-                                    <span>03 <br>TH06</span>
-                                </div>
-                            </div>  
-                        </div>
-                        <div class="col-md-10 col-xs-10">
-                            <div class="name_news">Tin tức 1</div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <h3 class="title-cate">Fanpage</h3>
                 <div class="box-fanpage">
-                    fanpage
+                    <div class="fb-page" data-href="{{$setting->facebook}}" data-tabs="timeline" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="{{$setting->facebook}}" class="fb-xfbml-parse-ignore"><a href="{{$setting->facebook}}">Facebook</a></blockquote></div>
                 </div>
             </div>    
             <div class="col-md-9 col-xs-12 pdl-0 pdr-0">
-                <div id="carousel-id" class="carousel slide" data-ride="carousel">
-                    
+                <div id="carousel-id" class="carousel slide" data-ride="carousel">                    
                     <div class="carousel-inner">
-                        <div class="item">
-                            <img  alt="Third slide" src="images/slider.png">
-                            
+                       @foreach($sliders as $k=>$slider)
+                        <div class="item @if($k ==0)active @endif">
+                            <img  alt="Third slide" src="{{asset('upload/hinhanh/'.$slider['photo'])}}">                            
                         </div>
-                        <div class="item active">
-                            <img  alt="Third slide" src="images/slider.png">
-                            
-                        </div>
+                        @endforeach
                     </div>
                     <a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
                     <a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>

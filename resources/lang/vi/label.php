@@ -41,4 +41,6 @@
                 'donhang' => "Đơn hàng",
                 'banggia' => "Bảng giá",
                 'nganhnghe' => "Ngành nghề",
+                'project' => "Dự án",
+                'library' => "Thư viện",
                 ];

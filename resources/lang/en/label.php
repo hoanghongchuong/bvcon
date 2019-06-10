@@ -41,4 +41,6 @@
                 'donhang' => "Order",
                 'banggia' => "Price list",
                 'nganhnghe' => "Career",
+                'project' => "Project",
+                'library' => "Library",
                 ];

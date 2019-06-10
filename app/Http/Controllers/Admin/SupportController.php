@@ -4,18 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Slogan;
+use App\Support;
 use File;
-class SloganController extends Controller
+class SupportController extends Controller
 {
     public function index(){
-    	$data = Slogan::all();
+    	$data = Support::all();
     	// dd($province);
-    	return view('admin.slogan.index',compact('data'));
+    	return view('admin.support.index',compact('data'));
     }
     public function getCreate(){
 
-    	return view('admin.slogan.create');
+    	return view('admin.support.create');
     }
     public function postCreate(Request $request){
         $img = $request->file('fImages');
@@ -25,22 +25,23 @@ class SloganController extends Controller
             $img_name=time().'_'.$img->getClientOriginalName();
             $img->move($path_img,$img_name);
         }
-    	$slogan = new Slogan;
-        $slogan->name = $request->txtName;
+    	$slogan = new Support;
+        $slogan->name_vi = $request->name_vi;
     	$slogan->name_en = $request->name_en;
+    	$slogan->phone = $request->phone;
         $slogan->photo = $img_name; 
-        $slogan->content = $request->content;
-    	$slogan->content_en = $request->content_en;
+        $slogan->mota_vi = $request->mota_vi;
+    	$slogan->mota_en = $request->mota_en;
     	$slogan->save();
-    	return redirect(route('admin.slogan.index'))->with('mess','Thêm thành công');
+    	return redirect(route('admin.support.index'))->with('mess','Thêm thành công');
     }
 
     public function getEdit($id){
-    	$slogan = Slogan::where('id',$id)->first();    	
-    	return view('admin.slogan.edit', compact('slogan'));
+    	$slogan = Support::where('id',$id)->first();    	
+    	return view('admin.support.edit', compact('slogan'));
     }
     public function postEdit(Request $request, $id){
-    	$slogan = Slogan::where('id',$id)->first();
+    	$slogan = Support::where('id',$id)->first();
         $img = $request->file('fImages');
         $img_current = 'upload/hinhanh/'.$request->img_current;
         if(!empty($img)){
@@ -52,17 +53,18 @@ class SloganController extends Controller
                 File::delete($img_current);
             }
         }
-    	$slogan->name = $request->txtName;
-        $slogan->name_en = $request->name_en;
-    	$slogan->content = $request->content;
-        $slogan->content_en = $request->content_en;
+    	$slogan->name_vi = $request->name_vi;
+    	$slogan->name_en = $request->name_en;
+        $slogan->phone = $request->phone;
+        $slogan->mota_vi = $request->mota_vi;
+    	$slogan->mota_en = $request->mota_en;
     	$slogan->save();
-    	return redirect(route('admin.slogan.index'));
+    	return redirect(route('admin.support.index'));
     }
 
     public function delete($id){
-    	$data = Slogan::find($id);
+    	$data = Support::find($id);
     	$data->delete();
-    	return redirect(route('admin.slogan.index'))->with('mess','Xóa thành công');
+    	return redirect(route('admin.support.index'))->with('mess','Xóa thành công');
     }
 }

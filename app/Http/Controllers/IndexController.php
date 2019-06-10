@@ -176,25 +176,31 @@ class IndexController extends Controller {
 	public function getProduct(Request $req)
 	{
 		$lang = Session::get('locale');
+		$categories = ProductCate::where('status',1)->where('com','san-pham')->get();
 		$cate_pro = ProductCate::where('status',1)->where('parent_id',0)->where('noibat',1)->orderby('stt','asc')->get();
 		$productSaleOff = Products::where('status',1)->where('spbc',1)->where('com','san-pham')->orderBy('id','desc')->take(8)->get();
 		$productHot = Products::where('status',1)->where('noibat',1)->where('com','san-pham')->orderBy('id','desc')->take(8)->get();
 		$partners = DB::table('partner')->get();
+		$news = News::where('com', 'tin-tuc')->where('status',1)->orderBy('id','desc')->take(5)->get();
+		$supports = \App\Support::get();
 		$com='san-pham';		
 		$title = "Sản phẩm";
 		$keyword = "Sản phẩm";
 		$description = "Sản phẩm";
 		// $img_share = asset('upload/hinhanh/'.$banner_danhmuc->photo);
 		
-		return view('templates.product_tpl', compact('title','keyword','description','products', 'com','cate_pro','partners','lang','productSaleOff','productHot'));
+		return view('templates.product_tpl', compact('title','keyword','description','products', 'com','cate_pro','partners','lang','productSaleOff','productHot','categories','news','supports'));
 	}
 
 
 	public function getProductList($alias, Request $req)
 	{		
 		$lang = Session::get('locale');
+		$categories = ProductCate::where('status',1)->where('com','san-pham')->get();
 		$cate_pro = ProductCate::where('status',1)->where('parent_id',0)->where('com','san-pham')->orderby('id','asc')->get()->toArray();
         $com = 'san-pham';
+        $productSaleOff = Products::where('status',1)->where('spbc',1)->where('com','san-pham')->orderBy('id','desc')->take(8)->get();
+        $productHot = Products::where('status',1)->where('noibat',1)->where('com','san-pham')->orderBy('id','desc')->take(8)->get();
         $product_cate = ProductCate::select('*')->where('status', 1)->where('alias_vi', $alias)->where('com','san-pham')->first()->toArray();
         $price_sort = 'price_'.$lang;
         $name_sort = 'name_'.$lang;
@@ -237,33 +243,35 @@ class IndexController extends Controller {
         			$array_cate[] = $cate['id'];
         		}
         	}
-        	$products = Products::whereIn('cate_id', $array_cate)->where('status',1);
-        	$limit = $req->view ? $req->view : 8;
-        	if($req->isMethod('GET')){
-        		$view_selected = $req->view;
-        	}
         	
-    		$selected = $req->sort;
-    		$appends = [];
-    		if($req->sort){
-    			if(isset($sortType[$req->sort])){
-    				$appends['sort'] = $req->sort;
-    				$products = $products->orderBy($sortType[$req->sort]['order'][0], $sortType[$req->sort]['order'][1]);
+      //   	$limit = $req->view ? $req->view : 8;
+      //   	if($req->isMethod('GET')){
+      //   		$view_selected = $req->view;
+      //   	}
+        	
+    		// $selected = $req->sort;
+    		// $appends = [];
+    		// if($req->sort){
+    		// 	if(isset($sortType[$req->sort])){
+    		// 		$appends['sort'] = $req->sort;
+    		// 		$products = $products->orderBy($sortType[$req->sort]['order'][0], $sortType[$req->sort]['order'][1]);
     				
-    			}
-    		}
-    		$products = $products->paginate($limit);
+    		// 	}
+    		// }
+    		$products = Products::whereIn('cate_id', $array_cate)->where('status',1)->paginate(16);
         	// $products = Products::whereIn('cate_id', $array_cate)->orderBy($price_sort, $sort)->paginate(12)->toArray();
         	// $data_paginate = Products::whereIn('cate_id', $array_cate)->paginate(12);
-            if (count($appends)) {
-				$products = $products->appends($appends);
-			}
+   //          if (count($appends)) {
+			// 	$products = $products->appends($appends);
+			// }
+			$news = News::where('com', 'tin-tuc')->where('status',1)->orderBy('id','desc')->take(5)->get();
+			$supports = \App\Support::get();
             $title = $product_cate["title_".$lang] ? $product_cate["title_".$lang] : $product_cate["name_".$lang];
 			$description = $product_cate["description_".$lang] ? $product_cate["description_".$lang] : $product_cate["name_".$lang];
 			$keyword = $product_cate["keyword_".$lang] ? $product_cate["keyword_".$lang] : $product_cate["name_".$lang];
             $img_share = asset('upload/product/' . $product_cate['photo']);
 
-            return view('templates.productlist_tpl', compact('products', 'product_cate', 'keyword', 'description', 'title', 'img_share', 'cate_pro', 'cate_parent', 'com','lang','data_paginate','selected','sortType','view_selected'));
+            return view('templates.productlist_tpl', compact('products', 'product_cate', 'keyword', 'description', 'title', 'img_share', 'cate_pro', 'cate_parent', 'com','lang','data_paginate','selected','sortType','view_selected','productSaleOff','productHot','categories','news','supports'));
         } else {
             return redirect()->route('getErrorNotFount');
         }

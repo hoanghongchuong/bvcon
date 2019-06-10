@@ -43,8 +43,10 @@
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/cus.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/phone.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/responsive.css')}}" />
+
     <script src="{{asset('public/js/jquery-2.1.4.min.js')}}"></script>
-    
+    <script src="{{asset('public/js/owl.carousel.min.js')}}"></script>
+
     <script type="text/javascript">
         function baseUrl(){
             return '<?php echo url('/'); ?>';
@@ -73,8 +75,7 @@
     {!! $setting->codechat !!}    
     {!! $setting->analytics !!}
     @yield('script')
-    <script src="{{asset('public/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('public/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('public/js/bootstrap.min.js')}}"></script>    
     <script src="{{asset('public/js/slick.min.js')}}"></script>
     <!-- <script src="{{asset('public/js/jquery.fancybox.min.js')}}"></script> -->
     <script src="{{asset('public/js/script.js')}}"></script>

@@ -119,8 +119,8 @@ ul.ls {
     position: absolute;
     top: 40px;
     left: 0px;
-    width: 400px;
-    background: #cc9933;
+    width: 200px;
+    background: #fff;
     z-index: 9999;
     text-align: left;
 }
@@ -138,7 +138,7 @@ ul.ls {
     color: #fff;
 }
 .vk-menu__child a{
-    font-size: 12px !important;
+    font-size: 14px !important;
     color: #fff;
     padding: 10px 10px !important;
 }
@@ -531,7 +531,7 @@ footer{
 .name_product{
     width: 100%;
     float: left;
-    height: 60px;
+    /*height: 60px;*/
     overflow: hidden;
 }
 .name_product a{
@@ -660,4 +660,69 @@ a.vk-btn{
 }
 .flash-message{
     color: blue;
+}
+.content-home-cate{
+    margin-bottom: 20px;
+}
+.product_name {
+    font-size: 30px;
+}
+.price_detail {
+    color: #00599d;
+    font-size: 36px;
+    font-weight: 500;
+}
+.qty {
+    font-size: 20px;
+    color: #333;
+    font-weight: 700;
+}
+.vk-calculator input {
+    background: #fff;
+    background-clip: padding-box;
+    border: 1px solid #c2c2c2;
+    border-radius: 2px;
+    margin-right: 5px;
+    height: 50px;
+    width: 70px;
+    text-align: center;
+}
+.box-content-detail {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+}
+.img-slider img {
+    max-height: 100% !important;
+    max-width: 100% !important;
+}
+.thumbnail {
+    width: 25%;
+    height: 130px;
+    float: left;
+    /* background: gray; */
+}
+.thumbnail .active{
+    border:1px solid #000;
+}
+.detail_contentx {
+    font-size: 25px;
+    color: #333333;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.name_product {
+    font-size: 15px;
+    line-height: 1.3em;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    height: 58.5px;
+}
+.price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
 }

@@ -2,7 +2,6 @@
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-
       <ul class="sidebar-menu">
         @if($is_admin->can('can_product_category'))
         <li class="treeview {{ @$_GET['type'] == 'san-pham' ? 'active' : '' }}">
@@ -20,11 +19,11 @@
         @if($is_admin->can('can_orders'))
         <li><a href="backend/orders"><i class="fa fa-shopping-cart"></i> <span>Quản lý đơn hàng</span></a></li>
         @endif
-        @if($is_admin->can('admin_manager'))
+       <!--  @if($is_admin->can('admin_manager'))
         <li class="{{ Request::segment(2) == 'admin' ? 'active' : '' }}">
             <a href="{{ route('admin.admin.index') }}"><i class="fa fa-user"></i>Quản lý tài khoản</a>
         </li>
-        @endif
+        @endif -->
         <li><a href="backend/about/edit?type=gioi-thieu"><i class="fa fa-circle-o"></i> <span>Giới thiệu</span></a></li>
         <!-- <li class="treeview {{ Request::segment(2) == 'about' || Request::segment(2) == 'lienket' ? 'active' : '' }}" >
             <a href="#">
@@ -38,8 +37,7 @@
                 <li><a href="backend/lienket?type=khachhang"><i class="fa fa-circle-o"></i> <span>Khách hàng</span></a></li>
                 <li><a href="backend/lienket?type=doitac"><i class="fa fa-circle-o"></i> <span>Đối tác</span></a></li>
             </ul>
-        </li> -->
-        
+        </li> -->        
         @if($is_admin->can('can_news'))
         <li class="{{ @$_GET['type'] == 'tin-tuc' ? 'active' : '' }}">
             <a href="backend/news?type=tin-tuc"><i class="fa fa-circle-o"></i> <span>Tin tức</span></a>
@@ -57,7 +55,7 @@
             </ul>
         </li> -->
         @endif
-        
+        <li><a href="{{ asset('backend/support') }}"><i class="fa fa-circle-o"></i> <span>Hỗ trợ trực tuyến</span></a></li> 
         <li><a href="{{ asset('backend/langs?type=langs') }}"><i class="fa fa-circle-o"></i> <span>Ngôn ngữ website</span></a></li>        
         <!-- <li class="treeview">
           <a href="#">
