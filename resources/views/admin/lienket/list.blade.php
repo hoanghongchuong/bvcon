@@ -26,7 +26,7 @@
   <h1>
     @yield('controller')
     <small>@yield('action')</small>
-    <span><a href="{{ url('doi-tac-khach-hang') }}" title="">{{ url('doi-tac-khach-hang') }}</a></span>
+    <span><a href="{{ url('doi-tac-khach-hang') }}" title=""></a></span>
   </h1>
   <ol class="breadcrumb">
     <li><a href="backend"><i class="fa fa-dashboard"></i> Home</a></li>

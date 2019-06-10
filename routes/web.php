@@ -371,6 +371,8 @@ Route::group(['middleware' => 'localization', 'prefix' => Session::get('locale')
 	Route::post('cart/update',['as' => 'updateCart', 'uses' => 'IndexController@updateCart']);
 	Route::post('gui-don-hang', ['as' =>'postOrder', 'uses'=> 'ContactController@postOrder']);
 	Route::get('xoa-gio-hang/{id}','IndexController@deleteCart');
+
+	Route::get('du-an', "indexcontroller@project");
 	// Route::get('thu-vien-anh',['as'=>'getThuvienanh', 'uses'=>'IndexController@getThuvienanh']);
 	// Route::get('hoi-vien',['as'=>'getHoivien', 'uses'=>'IndexController@getHoivien']);
 	// Route::get('{id}.html',['as'=>'getProductDetail', 'uses'=>'IndexController@getProductDetail']);

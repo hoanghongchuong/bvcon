@@ -9,7 +9,7 @@
     <small>@yield('action')</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="admin"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="backend"><i class="fa fa-dashboard"></i> Home</a></li>
     <li><a href="javascript:">@yield('controller')</a></li>
     <li class="active">@yield('action')</li>
   </ol>
@@ -20,7 +20,6 @@
     <div class="box">
     	@include('admin.messages_error')
         <div class="box-body">
-
         	<form name="frmAdd" method="post" action="{!! route('admin.news.postAdd') !!}" enctype="multipart/form-data">
         		<input type="hidden" name="_token" value="{!! csrf_token() !!}" />
 				<input type="hidden" name="txtCom" value="{{ @$_GET['type'] }}"/>

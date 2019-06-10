@@ -50,7 +50,7 @@
 								
 						    	<div class="form-group hidden @if ($errors->first('txtName')!='') has-error @endif">
 							      	<label for="ten">Tên tiếng việt</label>
-							      	<input type="text" id="txtName" name="txtName" value=""  class="form-control" />
+							      	<input type="text" id="txtName" name="name_vi" value=""  class="form-control" />
 							      	@if ($errors->first('txtName')!='')
 							      	<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('txtName'); !!}</label>
 							      	@endif
@@ -64,11 +64,7 @@
 								</div>
 
 								@endif
-								@if($_GET['type']=='chuyen-muc')
-								<div class="form-group">
-									Link cơ bản: quang-cao, thu-vien-hinh, tim-kiem, dich-vu, tin-tuc, hoi-vien, lien-he, index 
-								</div>
-								@endif
+								
 								
 								<!-- @if($_GET['type']=='tieu-chi')
 								<div class="form-group">

@@ -38,23 +38,21 @@
                 <li><a href="backend/lienket?type=doitac"><i class="fa fa-circle-o"></i> <span>Đối tác</span></a></li>
             </ul>
         </li> -->        
-        @if($is_admin->can('can_news'))
+        
         <li class="{{ @$_GET['type'] == 'tin-tuc' ? 'active' : '' }}">
             <a href="backend/news?type=tin-tuc"><i class="fa fa-circle-o"></i> <span>Tin tức</span></a>
         </li>
-        <!-- <li class="treeview {{ @$_GET['type'] == 'tin-tuc' ? 'active' : '' }}">
+
+        <li class="treeview {{ @$_GET['type'] == 'du-an' ? 'active' : '' }}">
             <a href="#">
-                <i class="fa fa-edit"></i> <span>Quản lý tin tức</span>
+                <i class="fa fa-edit"></i> <span>Quản lý dự án</span>
                 <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li class="{{ @$_GET['type'] == 'tin-tuc' ? 'active' : '' }}">
-                    <a href="backend/newscate?type=tin-tuc"><i class="fa fa-circle-o"></i> <span>Danh mục</span></a>
-                </li>
-                
+                <li><a href="backend/lienket?type=du-an"><i class="fa fa-circle-o"></i> <span>Dự án</span></a></li> 
+                <li><a href="backend/about/edit?type=du-an"><i class="fa fa-circle-o"></i> <span>Mô tả</span></a></li>
             </ul>
-        </li> -->
-        @endif
+        </li>
         <li><a href="{{ asset('backend/support') }}"><i class="fa fa-circle-o"></i> <span>Hỗ trợ trực tuyến</span></a></li> 
         <li><a href="{{ asset('backend/langs?type=langs') }}"><i class="fa fa-circle-o"></i> <span>Ngôn ngữ website</span></a></li>        
         <!-- <li class="treeview">

@@ -81,6 +81,7 @@
 									</div>
 								</div>							
 							</div>
+							@if($_GET['type']!='du-an')
 							<div class="row">
 								<div class="box box-info">
 					                <div class="box-header">
@@ -95,6 +96,7 @@
 					        		</div>
 					        	</div>
 							</div>
+							@endif
 							<div class="clearfix"></div>
 	                  	</div><!-- /.tab-pane -->
 	                  	<div class="tab-pane" id="tab_2">	                  		
@@ -108,6 +110,7 @@
 							      	<textarea name="mota_en" id="txtContent" rows="5" class="form-control">{!!$data->mota_en!!}</textarea>
 								</div>
 							</div>
+							@if($_GET['type']!='du-an')
 				        	<div class="col-md-12 col-xs-12">
 								<div class="box box-info">
 					                <div class="box-header">                                               
@@ -122,6 +125,7 @@
 					        		</div>
 					        	</div>
 							</div>
+							@endif
 	                    	<div class="clearfix"></div>
 	                	</div><!-- /.tab-pane -->
 	                	<div class="tab-pane" id="tab_3">	                  		

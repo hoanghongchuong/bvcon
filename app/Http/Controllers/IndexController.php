@@ -425,4 +425,15 @@ class IndexController extends Controller {
         Cart::remove($id);
         return redirect('gio-hang');
     }
+    public function project()
+    {
+    	$lang = Session::get('locale');
+    	$com = 'du-an';
+    	$projects = \App\LienKet::where("com",'du-an')->where('status',1)->orderBy('id','desc')->get();
+    	$mota = About::where('com', 'du-an')->first();
+    	$title = $lang == 'vi' ? 'Dự án' : 'Project';
+    	$description = $lang == 'vi' ? 'Dự án' : 'Project';
+    	$keyword = $lang == 'vi' ? 'Dự án' : 'Project';
+    	return view('templates.project', compact('lang','projects','com','title','description','keyword','mota'));
+    }
 }

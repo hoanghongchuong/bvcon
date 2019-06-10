@@ -14,7 +14,7 @@
     <meta name='revisit-after' content='1 days' /> 
     <title><?php if(!empty($title)) echo $title; else echo $setting->title_vi; ?></title>
     <meta name="author" content="{!! $setting->website !!}" />
-    <meta name="copyright" content="HCCORP" />
+    <meta name="copyright" content="hungthinhads.vn" />
     <meta name="keywords" content="<?php if(!empty($keyword)) echo $keyword; else echo $setting->keyword_vi; ?>" />
     <meta name="description" content="<?php if(!empty($description)) echo $description; else echo $setting->description_vi; ?>" />
     <meta http-equiv="content-language" content="vi" />

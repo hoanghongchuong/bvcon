@@ -66,7 +66,7 @@ class LienKetController extends Controller
 
         $news = new LienKet;
         
-        $news->name = $request->txtName;
+        $news->name_vi = $request->name_vi;
         $news->name_en = $request->name_en;
         $news->content_en = $request->content_en;
         $news->content = $request->txtContent;
@@ -178,7 +178,7 @@ class LienKetController extends Controller
                 }
             }
             $news->stt = intval($request->stt);
-            $news->name = $request->txtName;
+            $news->name_vi = $request->name_vi;
             $news->name_en = $request->name_en;
             $news->content_en = $request->content_en;
             $news->link = $request->txtLink;

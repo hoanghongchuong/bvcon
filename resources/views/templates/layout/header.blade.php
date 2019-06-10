@@ -79,6 +79,16 @@
                 </ul>
             </li>                
             <li><a href="{{url('tin-tuc')}}">{{trans('label.news')}}</a></li>
+            <li><a href="{{url('du-an')}}">{{trans('label.project')}}</a></li>
+            <li>
+                <a href="{{url('san-pham')}}">{{trans('label.library')}}</a>
+                    <a href="#menu3" data-toggle="collapse" class="_arrow-mobile"><i class="_icon fa fa-angle-down"></i></a>
+                    <ul class="collapse" id="menu3">
+                        <li><a href="{{url('video')}}">Video</a></li>
+                        <li><a href="">Hình ảnh</a></li>                                          
+                    </ul>
+                
+            </li>
             <li><a href="{{url('bang-gia')}}">{{trans('label.banggia')}}</a></li>
             <li><a href="{{url('lien-he')}}">{{trans('label.contact')}}</a></li>
             <li><a href="{{url('gio-hang')}}">{{trans('label.cart')}}</a></li>                
