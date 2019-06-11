@@ -26,11 +26,12 @@ class SloganController extends Controller
             $img->move($path_img,$img_name);
         }
     	$slogan = new Slogan;
-        $slogan->name = $request->txtName;
+        $slogan->name_vi = $request->name_vi;
     	$slogan->name_en = $request->name_en;
         $slogan->photo = $img_name; 
-        $slogan->content = $request->content;
+        $slogan->content_vi = $request->content_vi;
     	$slogan->content_en = $request->content_en;
+        dd($slogan);
     	$slogan->save();
     	return redirect(route('admin.slogan.index'))->with('mess','Thêm thành công');
     }
@@ -52,9 +53,9 @@ class SloganController extends Controller
                 File::delete($img_current);
             }
         }
-    	$slogan->name = $request->txtName;
+    	$slogan->name_vi = $request->name_vi;
         $slogan->name_en = $request->name_en;
-    	$slogan->content = $request->content;
+    	$slogan->content_vi = $request->content_vi;
         $slogan->content_en = $request->content_en;
     	$slogan->save();
     	return redirect(route('admin.slogan.index'));

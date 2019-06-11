@@ -21,19 +21,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5 col-xs-12">
-                <div class="owl-slider ">
-                    @if(count($albums) > 1)
-                        @foreach($albums as $album)  
+                @if($albums)   
+                <div class="owl-slider ">                    
+                    @foreach($albums as $album)  
                         <div class="item img-slider"><img src="{{asset('upload/hasp/'.$album['photo'])}}" alt="image"  draggable="false"/></div>
-                        @endforeach
-                        @else
-                        <div class="item img-slider"><img src="{{asset('upload/product/'.$data['photo'])}}" alt="image"  draggable="false"/></div>
-                    @endif 
-                    <!-- <div class="item img-slider"><img src="{{asset('public/images/duan2.jpg')}}" alt="image"  draggable="false"/></div> -->
-                    <!-- <div class="item img-slider"><img src="images/p1.jpg" alt="image"  draggable="false"/></div>
-                    <div class="item img-slider"><img src="images/p1.jpg" alt="image"  draggable="false"/></div> -->
-                    
+                        @endforeach                    
+                        <!-- <div class="item img-slider"><img src="{{asset('public/images/p1.jpg')}}" alt="image"  draggable="false"/></div>                        -->
                 </div>
+                @else
+                <div class="">                    
+                    <div class="item img-slider"><img src="{{asset('upload/product/'.$data['photo'])}}" alt="image"  draggable="false"/></div>
+                </div>
+                @endif
                 <div class="thumbnails-wrapper">
                     @foreach($albums as $album)
                     <div class="thumbnail"><a href="#">
