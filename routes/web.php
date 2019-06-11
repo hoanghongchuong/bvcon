@@ -184,6 +184,14 @@ Route::group(['middleware' =>'admin', 'prefix' => 'backend'], function(){
 		Route::post('edit/{id}',['as'=>'admin.support.postEdit', 'uses'=>'Admin\SupportController@postEdit']);
 		Route::get('delete/{id}',['as'=>'admin.support.delete', 'uses' => 'Admin\SupportController@delete']);
 	});
+	Route::group(['prefix'=>'banggia'], function(){
+		Route::get('/',['as'=>'admin.banggia.index','uses'=>'Admin\BangGiaController@index']);
+		Route::get('add',['as'=>'admin.banggia.create','uses'=>'Admin\BangGiaController@getCreate']);
+		Route::post('add',['as'=>'admin.banggia.postCreate','uses'=>'Admin\BangGiaController@postCreate']);
+		Route::get('edit/{id}',['as'=>'admin.banggia.edit', 'uses'=>'Admin\BangGiaController@getEdit']);
+		Route::post('edit/{id}',['as'=>'admin.banggia.postEdit', 'uses'=>'Admin\BangGiaController@postEdit']);
+		Route::get('delete/{id}',['as'=>'admin.banggia.delete', 'uses' => 'Admin\BangGiaController@delete']);
+	});
 	Route::group(['prefix' => 'about'], function(){
 		Route::get('/','Admin\AboutController@getList')->name('admin.about.getList');
 		Route::get('add','Admin\AboutController@getAdd')->name('admin.about.getAdd');
@@ -373,6 +381,8 @@ Route::group(['middleware' => 'localization', 'prefix' => Session::get('locale')
 	Route::get('xoa-gio-hang/{id}','IndexController@deleteCart');
 
 	Route::get('du-an', "indexcontroller@project");
+	Route::get('bang-gia', "indexcontroller@bangGia");
+	Route::get('video', "indexcontroller@video");
 	// Route::get('thu-vien-anh',['as'=>'getThuvienanh', 'uses'=>'IndexController@getThuvienanh']);
 	// Route::get('hoi-vien',['as'=>'getHoivien', 'uses'=>'IndexController@getHoivien']);
 	// Route::get('{id}.html',['as'=>'getProductDetail', 'uses'=>'IndexController@getProductDetail']);

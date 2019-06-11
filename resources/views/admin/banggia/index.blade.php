@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('content')
-@section('controller','Support ')
+@section('controller','Bảng giá')
 @section('action','List')
 <section class="content-header">
   <h1>
@@ -10,7 +10,7 @@
   <ol class="breadcrumb">
     <li><a href="admin"><i class="fa fa-dashboard"></i> Home</a></li>
     <li><a href="javascript:">List</a></li>
-    <li class="active">Support</li>
+    <li class="active">Bảng giá</li>
   </ol>
 </section>
 <section class="content">
@@ -27,12 +27,9 @@
               <tr>
                 <!-- <th style="width: 20px;"><input type="checkbox" name="chonhet" class="minimal" id="chonhet" /></th> -->
                 <th class="text-center with_dieuhuong">Stt</th>
-                <th>Hình ảnh</th>
+                
                 <th>Tên</th>
-                <th>Số điện thoại</th>
-                <th>Mô tả</th>
-                <!-- <th>Chức vụ</th> -->
-                <!-- <th>Nội dung</th> -->
+                <th>Tài liệu</th>                
                 <!-- <th class="text-center with_dieuhuong">Hoạt động</th> -->
                 <th class="text-center with_dieuhuong">Sửa</th>
                 <th class="text-center with_dieuhuong">Xóa</th>
@@ -43,15 +40,14 @@
               <tr>
                 <!-- <td><input type="checkbox" name="chon" id="chon" value="" class="chon" /></td> -->
                 <td>{{$key+1}}</td>
-                <td><img src="{{asset('upload/hinhanh/'.$item->photo)}}" class="img_product" alt=""></td>
+                
                 <td>{{$item->name_vi}}</td>
-                <td>{{$item->phone}}</td>  
-                <td>{!!$item->mota_vi!!}</td>            
+                <td>{{asset('upload/document/'.$item->document)}}</td>                      
                 <td class="text-center with_dieuhuong">
-                  <i class="fa fa-pencil fa-fw"></i><a href="{{asset('backend/support/edit/'.$item->id)}}">Edit</a>
+                  <i class="fa fa-pencil fa-fw"></i><a href="{{asset('backend/banggia/edit/'.$item->id)}}">Edit</a>
                 </td>
                 <td class="text-center">
-                  <i class="fa fa-trash-o fa-fw"></i><a onClick="if(!confirm('Xác nhận xóa')) return false;" href="{{asset('backend/support/delete/'.$item->id)}}">Delete</a>
+                  <i class="fa fa-trash-o fa-fw"></i><a onClick="if(!confirm('Xác nhận xóa')) return false;" href="{{asset('backend/banggia/delete/'.$item->id)}}">Delete</a>
                 </td>
               </tr>
             @endforeach
@@ -61,7 +57,7 @@
         <div class="box-footer col-md-12">
           <div class="row">
             <div class="col-md-6">
-              <input type="button" onclick="javascript:window.location='backend/support/add'" value="Thêm" class="btn btn-primary" />
+              <input type="button" onclick="javascript:window.location='backend/banggia/add'" value="Thêm" class="btn btn-primary" />
               <!-- <button type="button" id="xoahet" class="btn btn-success">Xóa</button> -->
               <input type="button" value="Thoát" onclick="javascript:window.location='backend'" class="btn btn-danger" />
             </div>

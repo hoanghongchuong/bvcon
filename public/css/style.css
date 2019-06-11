@@ -105,6 +105,17 @@ ul.ls {
 .menu-home a{
     color: #fff !important;
 }
+.menu-home .vk-menu__child a{
+    color: #000 !important;
+    padding-left: 0px !important;
+}
+.menu-home .vk-menu__child{
+    width: 300px;
+}
+.menu-home .vk-menu__child > li{
+    line-height: 20px;
+    padding: 10px;
+}
 .menu ul.navi > li a {
     color: #000;
     font-size: 16px;
@@ -726,4 +737,66 @@ a.vk-btn{
     font-size: 20px;
     font-weight: 700;
     color: #333;
+}
+.page-inner{
+    width: 100%;
+    float: left;
+}
+.page-inner a{
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #333;
+}
+.video-max img{
+    width: 100%;
+}
+.background-item {
+    display: block;
+    background-size: cover;
+    background-position: center center;
+    height: 375px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+.background-item .plus-icon {
+    position: absolute;
+    z-index: 100;
+    top: calc(50% - 30.5px);
+    left: 0;
+    right: 0;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0;
+}
+.background-item .text {
+    position: absolute;
+    z-index: 10;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    padding: 0px;
+}
+.background-item .text .title {
+    font-size: 24px;
+    color: #fff;
+    line-height: 34px;
+    margin-bottom: 15px;
+}
+.background-item .text .detail-list .time {
+    display: inline-block;
+    color: #fff;
+    font-size: 13px;
+    margin-right: 15px;
+}
+
+.background-item:hover {
+    box-shadow: 0 15px 25px 0 rgba(0,102,153,0.25);
+}
+.background-item:hover .plus-icon {
+    opacity: 1;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }

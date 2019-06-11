@@ -9,6 +9,7 @@ use App\Products;
 use App\ProductCate;
 use App\Feedback;
 use App\About;
+use App\Video;
 use App\Slider;
 use App\Images;
 use App\GioiThieu;
@@ -435,5 +436,22 @@ class IndexController extends Controller {
     	$description = $lang == 'vi' ? 'Dự án' : 'Project';
     	$keyword = $lang == 'vi' ? 'Dự án' : 'Project';
     	return view('templates.project', compact('lang','projects','com','title','description','keyword','mota'));
+    }
+    public function bangGia()
+    {
+    	$lang = Session::get('locale');
+    	$data = \App\BangGia::orderBy('id','desc')->get();
+    	$categories = ProductCate::where('status',1)->where('com','san-pham')->get();
+    	$news = News::where('com', 'tin-tuc')->where('status',1)->orderBy('id','desc')->take(5)->get();
+		$supports = \App\Support::get();
+    	$com = 'bang-gia';
+    	return view('templates.banggia', compact('data','categories','com', 'supports','news','lang'));
+    }
+    public function video()
+    {
+    	$lang = Session::get('locale');
+    	$video = Video::orderBy('id','desc')->get();
+    	$com = 'video';
+    	return view('templates.video', compact('video', 'lang','com'));
     }
 }

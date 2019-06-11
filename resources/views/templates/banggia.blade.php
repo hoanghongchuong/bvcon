@@ -57,43 +57,13 @@
             </div>    
             <div class="col-md-9 col-xs-12 pdl-0 pdr-0">
                 <div class="box-content">
-                    <div class="title-category">
-                        <div class="pull-left">
-                            <span class="name-cate">{{$product_cate['name_'.$lang]}}</span>
-                        </div>
-                        <div class="pull-right">
-                            <!-- <a href="" title="" class="read-more">Xem thêm</a> -->
-                        </div>
+                    <div class="page-inner">
+                    	@foreach($data as $item)
+                    	<p><a href="{{asset('upload/document/'.$item->document)}}" title="">{{$item['name_'.$lang]}}</a></p>
+                    	<hr>
+                    	@endforeach
                     </div>
-                    <div class="list-item">
-                        @foreach($products as $item)
-                        <div class="col-md-3 col-xs-6 pdl-10 pdr-10">
-                            
-                            <div class="item">
-                                
-                                <div class="box-image">
-                                    <a href="{{url('san-pham/'.$item['alias_vi'].'.html')}}" title=""><img src="{{asset('upload/product/'.$item['photo'])}}" alt="{{$item['name_'.$lang]}}"></a>
-                                </div>
-                                <p class="name_product"><a href="{{url('san-pham/'.$item['alias_vi'].'.html')}}" title="{{$item['name_'.$lang]}}">{{$item['name_'.$lang]}}</a></p>
-                                <div class="price tac info-price">
-                                    <!-- <p class="price_old">2,500,000 VNĐ</p> -->
-                                    <p class="price_news">
-                                        {{trans('label.price')}}:
-                                        @if($lang =='vi') 
-                                            {{number_format($item['price_vi'])}} vnđ
-                                        @elseif($lang =='en') 
-                                            $ {{number_format($item['price_en'])}}
-                                        @endif
-                                    </p>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="paginations">{!! $products->links() !!}</div>
-               
+                </div>                
             </div> 
         </div>
     </div>

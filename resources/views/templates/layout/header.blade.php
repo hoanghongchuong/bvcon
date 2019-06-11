@@ -26,10 +26,10 @@
                     <li><a href="{{url('tin-tuc')}}">{{trans('label.news')}}</a></li>
                     <li><a href="{{url('du-an')}}">{{trans('label.project')}}</a></li>
                     <li>
-                        <a href="{{url('san-pham')}}">{{trans('label.library')}}</a>
+                        <a href="">{{trans('label.library')}}</a>
                         <ul class="vk-menu__child">
                             <li><a href="{{url('video')}}">Video</a></li>
-                            <li><a href="">Hình ảnh</a></li>                                               
+                            <li><a href="{{url('hinh-anh')}}">{{trans('label.hinhanh')}}</a></li>                                               
                         </ul>
                     </li>
                     <li><a href="{{url('bang-gia')}}">{{trans('label.banggia')}}</a></li>
@@ -54,16 +54,15 @@
     <nav class="vk-header__menu-mobile">
         <ul class="vk-menu__mobile collapse" id="menuMobile">
             
-            <li><a href="#">{{trans('label.home')}}</a></li>
-            <li><a href="#">{{trans('label.gioithieu')}}</a></li>
+            <li><a href="{{url('')}}">{{trans('label.home')}}</a></li>
+            <li><a href="{{url('gioi-thieu')}}">{{trans('label.gioithieu')}}</a></li>
             <li>
                 <a href="#">{{trans('label.product')}}</a>
-
                 <a href="#menu2" data-toggle="collapse" class="_arrow-mobile"><i class="_icon fa fa-angle-down"></i></a>
                 <ul class="collapse" id="menu2">
                     @foreach($categories as $k=>$category)
                     <li>
-                        <a href="{{url('san-pham/'.$category['alias_vi'])}}">{{$category['name_'.$lang]}}</a>                        
+                        <a href="{{url('san-pham/'.$category['alias_vi'])}}">{{$category['name_'.$lang]}}</a>
                         <!-- <?php $category_chidls = \App\ProductCate::where('parent_id',$category['id'])->get()->toArray(); ?>
                         @if(count($category_chidls) > 0)
                         <a href="#menu-child{{$k}}" data-toggle="collapse" class="_arrow-mobile"><i class="_icon fa fa-angle-down"></i></a>
@@ -81,11 +80,11 @@
             <li><a href="{{url('tin-tuc')}}">{{trans('label.news')}}</a></li>
             <li><a href="{{url('du-an')}}">{{trans('label.project')}}</a></li>
             <li>
-                <a href="{{url('san-pham')}}">{{trans('label.library')}}</a>
+                <a href="">{{trans('label.library')}}</a>
                     <a href="#menu3" data-toggle="collapse" class="_arrow-mobile"><i class="_icon fa fa-angle-down"></i></a>
                     <ul class="collapse" id="menu3">
                         <li><a href="{{url('video')}}">Video</a></li>
-                        <li><a href="">Hình ảnh</a></li>                                          
+                        <li><a href="{{url('hinh-anh')}}">{{trans('label.hinhanh')}}</a></li>                                          
                     </ul>
                 
             </li>

@@ -27,7 +27,7 @@ $lang = Session::get('locale');
                     <li><a href="#">Tư vấn, thiết kế thi công hệ thống năng lượng mặt trời</a></li>
                     <li><a href="#">Tư vấn, thiết kế, chế tạo, thi công hệ thống điện</a></li>
                     <li><a href="#">Cung cấp và lắp đặt các hệ thống tự động hóa.</a></li>
-                    <li><a href="#">Cung cấp các thiết bị điện.</a></li>
+                    <li><a href="{{url('san-pham')}}">Cung cấp các thiết bị điện.</a></li>
                 </ul>
             </li>                
         </ul>
@@ -55,7 +55,7 @@ $lang = Session::get('locale');
                                 <li><a href="#">Tư vấn, thiết kế thi công hệ thống năng lượng mặt trời</a></li>
                                 <li><a href="#">Tư vấn, thiết kế, chế tạo, thi công hệ thống điện</a></li>
                                 <li><a href="#">Cung cấp và lắp đặt các hệ thống tự động hóa.</a></li>
-                                <li><a href="#">Cung cấp các thiết bị điện.</a></li>   
+                                <li><a href="{{url('san-pham')}}">Cung cấp các thiết bị điện.</a></li>   
                             </ul>
                         </li>
                         <li class="language"><a href="{{url('lang/'.'vi')}}" class="pdr-0">VN</a><a href="{{url('lang/'.'en')}}" title="" class="pdl-0"> / EN</a></li>

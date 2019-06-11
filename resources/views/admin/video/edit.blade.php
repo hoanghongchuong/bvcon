@@ -26,8 +26,7 @@
 	      		
       			<div class="nav-tabs-custom">
 	                <ul class="nav nav-tabs">
-	                  	<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Thông tin chung</a></li>
-	                  	
+	                  	<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Thông tin chung</a></li>	                  	
 	                </ul>
 	                <div class="tab-content">
 	                  	<div class="tab-pane active" id="tab_1">
@@ -40,19 +39,31 @@
 						        			@endforeach
 						        		</div>
 						        	@endif -->
-									
-									
+								
+						            
+						             <div class="form-group @if ($errors->first('fImages')!='') has-error @endif">
+										<div class="form-group">
+											<img src="{{ asset('upload/hinhanh/'.$data->photo) }}" onerror="this.src='{{asset('public/admin_assets/images/no-image.jpg')}}'" width="200"  alt="NO PHOTO" />
+											<input type="hidden" name="img_current" value="{!! @$data->photo !!}">
+										</div>
+										<label for="file">Chọn File ảnh</label>
+								     	<input type="file" id="file" name="fImages" >
+								    	<p class="help-block">Width:225px - Height: 162px</p>
+								    	@if ($errors->first('fImages')!='')
+								      	<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('fImages'); !!}</label>
+								      	@endif
+									</div>
 									<div class="clearfix"></div>
 									<div class="form-group">
 								      	<label for="desc">Tên</label>
-								      	<input type="text" name="name" class="form-control" value="{{$data->name}}">
+								      	<input type="text" name="name_vi" class="form-control" value="{{$data->name_vi}}">
 									</div>
 							    	<div class="form-group">
-								      	<label for="desc">Tên tiếng nhật</label>
+								      	<label for="desc">Tên tiếng anh</label>
 								      	<input type="text" name="name_en" class="form-control" value="{{$data->name_en}}">
 									</div>
 									<div class="form-group">
-								      	<label for="desc">Link</label>
+								      	<label for="desc">Mã</label>
 								      	<input type="text" name="link" class="form-control" value="{{$data->link}}">
 									</div>
 								

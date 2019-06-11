@@ -53,20 +53,21 @@
                 <li><a href="backend/about/edit?type=du-an"><i class="fa fa-circle-o"></i> <span>Mô tả</span></a></li>
             </ul>
         </li>
-        <li><a href="{{ asset('backend/support') }}"><i class="fa fa-circle-o"></i> <span>Hỗ trợ trực tuyến</span></a></li> 
+        <li><a href="{{ asset('backend/support') }}"><i class="fa fa-circle-o"></i> <span>Hỗ trợ trực tuyến</span></a></li>
+        <li><a href="{{ asset('backend/banggia') }}"><i class="fa fa-circle-o"></i> <span>Bảng giá</span></a></li>
         <li><a href="{{ asset('backend/langs?type=langs') }}"><i class="fa fa-circle-o"></i> <span>Ngôn ngữ website</span></a></li>        
-        <!-- <li class="treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>Ảnh và video </span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="backend/about/edit?type=video"><i class="fa fa-circle-o"></i> <span>Mô tả</span></a></li>
+            
             <li><a href="backend/video"><i class="fa fa-circle-o"></i> <span>Video</span></a></li>
             <li><a href="backend/lienket?type=thu-vien"><i class="fa fa-circle-o"></i> <span>Thư viện ảnh</span></a></li>            
           
           </ul>
-        </li> -->
+        </li>
         <!-- <li><a href="backend/partner"><i class="fa fa-circle-o"></i> <span>Đối tác</span></a></li>        -->
         <li><a href="backend/feedback"><i class="fa fa-circle-o"></i> <span>Ý kiến khách hàng</span></a></li>       
         @if($is_admin->can('can_contact'))

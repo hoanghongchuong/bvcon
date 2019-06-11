@@ -41,18 +41,25 @@
 						        		</div>
 						        	@endif -->
 									
-									
+									<div class="form-group col-md-12 @if ($errors->first('fImages')!='') has-error @endif">
+						                <label for="file">File ảnh</label>
+						                  <input type="file" id="file" name="fImages" >
+						                  <p class="help-block">Width:225px - Height: 162px</p>
+						                  @if ($errors->first('fImages')!='')
+						                    <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('fImages'); !!}</label>
+						                    @endif
+						             </div>
 									<div class="clearfix"></div>
 									<div class="form-group">
 								      	<label for="desc">Tên</label>
-								      	<input type="text" name="name" class="form-control">
+								      	<input type="text" name="name_vi" class="form-control">
 									</div>
 							    	<div class="form-group">
-								      	<label for="desc">Tên tiếng nhật</label>
+								      	<label for="desc">Tên tiếng anh</label>
 								      	<input type="text" name="name_en" class="form-control">
 									</div>
 									<div class="form-group">
-								      	<label for="desc">Link</label>
+								      	<label for="desc">Mã</label>
 								      	<input type="text" name="link" class="form-control">
 									</div>
 								

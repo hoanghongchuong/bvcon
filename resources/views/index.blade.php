@@ -38,6 +38,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/font-awesome.min.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/jquery.bxslider.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('public/css/jquery.fancybox.min.css')}}" />
     <!-- <link rel="stylesheet" type="text/css" href="{{asset('public/css/slick.css')}}" /> -->
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/style.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/cus.css')}}" />
@@ -77,7 +78,7 @@
     @yield('script')
     <script src="{{asset('public/js/bootstrap.min.js')}}"></script>    
     <script src="{{asset('public/js/slick.min.js')}}"></script>
-    <!-- <script src="{{asset('public/js/jquery.fancybox.min.js')}}"></script> -->
+    <script src="{{asset('public/js/jquery.fancybox.min.js')}}"></script>
     <script src="{{asset('public/js/script.js')}}"></script>
     <script src="{{asset('public/js/cus.js')}}"></script>
 <!-- END: SCRIPT -->
