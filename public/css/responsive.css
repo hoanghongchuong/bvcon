@@ -18,5 +18,10 @@
 	
 }
 @media (min-width: 1200px){
+	.about-left, .video-right{
+		width: 50%;
+		float:left;
+		min-height: 370px;
+	}
 	
 }

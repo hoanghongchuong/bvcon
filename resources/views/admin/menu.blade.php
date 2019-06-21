@@ -38,7 +38,18 @@
                 <li><a href="backend/lienket?type=doitac"><i class="fa fa-circle-o"></i> <span>Đối tác</span></a></li>
             </ul>
         </li> -->        
-        
+        <li class="treeview {{ @$_GET['type'] == 'nganh-nghe' ? 'active' : '' }}">
+            <a href="#">
+                <i class="fa fa-edit"></i> <span>Quản lý ngành nghề</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="backend/newscate?type=nganh-nghe"><i class="fa fa-circle-o"></i> <span>Danh mục</span></a></li>
+                <li class="{{ @$_GET['type'] == 'nganh-nghe' ? 'active' : '' }}">
+                    <a href="backend/news?type=nganh-nghe"><i class="fa fa-circle-o"></i> <span>Danh sách</span></a>
+                </li>
+            </ul>
+        </li>
         <li class="{{ @$_GET['type'] == 'tin-tuc' ? 'active' : '' }}">
             <a href="backend/news?type=tin-tuc"><i class="fa fa-circle-o"></i> <span>Tin tức</span></a>
         </li>
@@ -61,11 +72,9 @@
             <i class="fa fa-edit"></i> <span>Ảnh và video </span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
-          <ul class="treeview-menu">
-            
+          <ul class="treeview-menu">            
             <li><a href="backend/video"><i class="fa fa-circle-o"></i> <span>Video</span></a></li>
-            <li><a href="backend/lienket?type=thu-vien"><i class="fa fa-circle-o"></i> <span>Thư viện ảnh</span></a></li>            
-          
+            <li><a href="backend/lienket?type=hinh-anh"><i class="fa fa-circle-o"></i> <span>Thư viện ảnh</span></a></li>
           </ul>
         </li>
         <!-- <li><a href="backend/partner"><i class="fa fa-circle-o"></i> <span>Đối tác</span></a></li>        -->
@@ -74,8 +83,8 @@
         <li class="{{ Request::segment(2) == 'contact' ? 'active' : '' }}"><a href="backend/contact"><i class="fa fa-envelope"></i> <span>Quản lý liên hệ</span></a></li>
         @endif
         <!-- <li><a href="backend/newsletter?type=newsletter"><i class="fa fa-circle-o"></i> <span>Đăng ký nhận tin</span></a></li> -->
-
-        @if($is_admin->can('can_slider'))
+        <li class="{{ Request::segment(2) == 'slider' ? 'active' : '' }}"><a href="backend/slider?type=gioi-thieu"><i class="fa fa-circle-o"></i> <span>Quản lý slider</span></a></li>
+        <!-- @if($is_admin->can('can_slider'))
         <li class="treeview {{ Request::segment(2) == 'slider' ? 'active' : '' }}">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
@@ -83,11 +92,11 @@
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ Request::segment(2) == 'slider' ? 'active' : '' }}"><a href="backend/slider?type=gioi-thieu"><i class="fa fa-circle-o"></i> <span>Quản lý slider</span></a></li>
+            
             <li><a href="backend/banner"><i class="fa fa-gear" aria-hidden="true"></i> <span>Quản lý banner</span></a></li>
           </ul>
         </li>
-        @endif
+        @endif -->
         <!-- <li><a href="backend/position"><i class="fa fa-gear" aria-hidden="true"></i> <span>Vị trí quảng cáo</span></a></li> -->
         @if($is_admin->can('admin_manager'))
         <li><a href="{{ asset('backend/setting') }}"><i class="fa fa-gear" aria-hidden="true"></i> <span>Quản lý thiết lập</span></a></li>

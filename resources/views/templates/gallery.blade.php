@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="title">{{trans('label.project')}}</h1>
+                    <h1 class="title">{{trans('label.hinhanh')}}</h1>
                 </div>
             </div>
         </div>
@@ -29,7 +29,8 @@
                 <div class="owl-carousel owl-carousel-product owl-theme popup">
                     @foreach($projects as $item)
                     <div class="item">
-                        <img src="{{asset('upload/hinhanh/'.$item->photo)}}" alt="">                        
+                        <img src="{{asset('upload/hinhanh/'.$item->photo)}}" alt="">
+                        
                     </div>
                     @endforeach
                 </div>

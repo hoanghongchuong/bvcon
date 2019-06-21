@@ -33,7 +33,7 @@
                         <thead>
                             <tr>                                
                                 <th class="text-center with_dieuhuong">Stt</th>                                
-                                <th>Danh mục cha</th>                               
+                                <!-- <th>Danh mục cha</th>                                -->
                                 <th>Tên danh mục</th>
                                 <!-- <th class="text-center with_dieuhuong">Hiển thị</th> -->
                                 <th class="text-center with_dieuhuong">Sửa</th>
@@ -46,7 +46,7 @@
                                 
                                 <td class="text-center with_dieuhuong">{{$k+1}}</td>
                                 
-                                <td>
+                                <!-- <td>
                                   <?php  $parent = DB::table('news_categories')->where('id', $item->parent_id)->where('com', @$_GET['type'])->first();
                                   ?>
                                   @if(!empty($parent))
@@ -54,19 +54,9 @@
                                   @else
                                     {{ 'None' }}
                                   @endif
-                                </td>
+                                </td> -->
                                 
-                                <td>{{$item->name_vi}}<br>
-                                    @if($_GET['type']=='tin-tuc')
-                                        <a href=" {{url('tin-tuc/'.$item->alias_vi)}}" title=""> {{url('tin-tuc/'.$item->alias_vi)}}</a>
-                                    @endif
-                                    @if($_GET['type']=='du-an')
-                                        <a href=" {{url('du-an/'.$item->alias_vi)}}" title=""> {{url('du-an/'.$item->alias_vi)}}</a>
-                                    @endif
-                                    @if($_GET['type']=='linh-vuc')
-                                        <a href=" {{url('linh-vuc/'.$item->alias_vi)}}" title=""> {{url('linh-vuc/'.$item->alias_vi)}}</a>
-                                    @endif
-                               </td>
+                                <td>{{$item->name_vi}}</td>
                                 <!-- <td class="text-center with_dieuhuong">
                                   @if($item->status>0)
                                     <a href="backend/newscate/edit?id={{$item->id}}&hienthi={{ time() }}&type={{ @$_GET['type'] }}" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Bật</a>

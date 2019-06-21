@@ -454,4 +454,20 @@ class IndexController extends Controller {
     	$com = 'video';
     	return view('templates.video', compact('video', 'lang','com'));
     }
+    public function gallery()
+    {
+    	$lang = Session::get('locale');
+    	$com = 'hinh-anh';
+    	$projects = \App\LienKet::where("com",'hinh-anh')->where('status',1)->orderBy('id','desc')->get();
+    	$mota = About::where('com', 'hinh-anh')->first();
+    	$title = $lang == 'vi' ? 'Hình ảnh' : 'Images';
+    	$description = $lang == 'vi' ? 'Hình ảnh' : 'Images';
+    	$keyword = $lang == 'vi' ? 'Hình ảnh' : 'Images';
+    	return view('templates.gallery', compact('lang','projects','com','title','description','keyword','mota'));
+    }
+    public function nganhnghe($alias)
+    {
+    	
+    	return view('templates.nganhnghe');
+    }
 }

@@ -29,9 +29,9 @@
 	                <ul class="nav nav-tabs">
 	                  	<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Tiếng việt</a></li>
 	                  	<li><a href="#tab_2" data-toggle="tab" aria-expanded="true">Tiếng anh</a></li>
-	                  	<li><a href="#tab_3" data-toggle="tab" aria-expanded="true">Tiếng nhật</a></li>
+	                  	<!-- <li><a href="#tab_3" data-toggle="tab" aria-expanded="true">Tiếng nhật</a></li>
 	                  	<li><a href="#tab_4" data-toggle="tab" aria-expanded="true">Tiếng hàn</a></li>
-	                  	<li><a href="#tab_5" data-toggle="tab" aria-expanded="true">Tiếng trung</a></li>
+	                  	<li><a href="#tab_5" data-toggle="tab" aria-expanded="true">Tiếng trung</a></li> -->
 	                  	<!-- <li><a href="#tab_6" data-toggle="tab" aria-expanded="true">SEO</a></li> -->
 	                </ul>
 	                <div class="tab-content">
@@ -46,15 +46,15 @@
 								      	<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('fImages'); !!}</label>
 								      	@endif
 									</div> -->
-								<div class="form-group col-md-12 @if ($errors->first('fImagesBg')!='') has-error @endif">
+								<!-- <div class="form-group col-md-12 @if ($errors->first('fImagesBg')!='') has-error @endif">
 									<label for="file">File background</label>
 							     	<input type="file" id="file" name="fImagesBg" >
 							    	<p class="help-block">Width:225px - Height: 162px</p>
 							    	@if ($errors->first('fImagesBg')!='')
 							      	<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('fImagesBg'); !!}</label>
 							      	@endif
-								</div>
-		                    	<div class="form-group">
+								</div> -->
+		                    	<div class="form-group hidden">
 							      	<label for="ten">Danh mục cha</label>
 							      	<select name="txtNewsCate" class="form-control">
 							      		<option value="0">Chọn danh mục</option>
@@ -355,13 +355,12 @@
 	            </div>
 	            <div class="clearfix"></div>
 			    <div class="col-md-6">
-			    	<div class="form-group">
+			    	<div class="form-group hidden">
 					    <label for="ten">Số thứ tự</label>
 					    <input type="number" min="1" name="stt" value="{!! count($parent)+1 !!}" class="form-control" style="width: 100px;">
 				    </div>			    	
 			    </div>
-			    <div class="clearfix"></div>
-			    
+			    <div class="clearfix"></div>			    
 			    <div class="box-footer">
 			    	<div class="row">
 						<div class="col-md-6">

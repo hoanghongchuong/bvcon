@@ -4,6 +4,7 @@
     // dd($menus);
     $categories = \App\ProductCate::where('com','san-pham')->where('parent_id',0)->get()->toArray();
     $lang = Session::get('locale');
+    
 ?>
 <div class="menu visible-lg visible-md vk-header">
     <div class="container">

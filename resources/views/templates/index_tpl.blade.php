@@ -4,6 +4,7 @@
 <?php
 $setting = Cache::get('setting');
 $lang = Session::get('locale');
+$cateNganhNghe = \App\NewsCate::where('com','nganh-nghe')->where('status',1)->get();
 ?>
 <!-- menu-mobile -->
 <div class="visible-xs visible-sm menu-mobile menu-sidebar">
@@ -24,9 +25,9 @@ $lang = Session::get('locale');
                 <a href="">Ngành nghề</a>
                 <a href="#menu2" data-toggle="collapse" class="_arrow-mobile"><i class="_icon fa fa-angle-down"></i></a>
                 <ul class="collapse" id="menu2">
-                    <li><a href="#">Tư vấn, thiết kế thi công hệ thống năng lượng mặt trời</a></li>
-                    <li><a href="#">Tư vấn, thiết kế, chế tạo, thi công hệ thống điện</a></li>
-                    <li><a href="#">Cung cấp và lắp đặt các hệ thống tự động hóa.</a></li>
+                    @foreach($cateNganhNghe as $cate)
+                    <li><a href="#">{{$cate['name_'.$lang]}}</a></li>
+                    @endforeach
                     <li><a href="{{url('san-pham')}}">Cung cấp các thiết bị điện.</a></li>
                 </ul>
             </li>                
@@ -52,9 +53,9 @@ $lang = Session::get('locale');
                         <li>
                             <a href="">{{trans('label.nganhnghe')}}</a>
                             <ul class="vk-menu__child">                                
-                                <li><a href="#">Tư vấn, thiết kế thi công hệ thống năng lượng mặt trời</a></li>
-                                <li><a href="#">Tư vấn, thiết kế, chế tạo, thi công hệ thống điện</a></li>
-                                <li><a href="#">Cung cấp và lắp đặt các hệ thống tự động hóa.</a></li>
+                                @foreach($cateNganhNghe as $cate)
+                                <li><a href="{{url('nganh-nghe/'.$cate['alias_vi'])}}">{{$cate['name_'.$lang]}}</a></li>
+                                @endforeach
                                 <li><a href="{{url('san-pham')}}">Cung cấp các thiết bị điện.</a></li>   
                             </ul>
                         </li>

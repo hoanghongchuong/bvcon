@@ -16,17 +16,14 @@ Route::post('backend/postlogin',['as'=>'admin.auth.postLogin', 'uses'=>'Admin\Au
 
 Route::group(['middleware' =>'admin', 'prefix' => 'backend'], function(){
 	Route::get('/',['as'=>'admin.index', 'uses'=>'Admin\IndexController@getIndex']);
-
 	Route::any('profile', 'Admin\AuthController@profile')->name('profile');
-
 	Route::get('register',['as'=>'getRegister', 'uses'=>'AdminAuth\AuthController@getRegister']);
 	Route::post('postregister',['as'=>'postRegister', 'uses'=>'AdminAuth\AuthController@postRegister']);
 	Route::get('logout', ['as' => 'admin.auth.logout', 'uses' => 'AdminAuth\AuthController@logout']);
 	Route::group([ 'prefix' => 'setting', 'middleware'=>'can:admin_manager'], function(){
 		Route::get('/',['as'=>'admin.setting.index','uses'=>'Admin\SettingController@index']);
 		Route::post('update',['as'=>'admin.setting.update','uses'=>'Admin\SettingController@update']);
-	});
-	
+	});	
 	
 	Route::post('contact/access',['as'=>'admin.contact.access','uses'=>'Admin\ContactController@xuly']);
 	Route::post('recruitment/access',['as'=>'admin.recruitment.access','uses'=>'Admin\RecruitmentController@accessRe']);
@@ -363,6 +360,8 @@ Route::group(['middleware' => 'localization', 'prefix' => Session::get('locale')
 	Route::get('tin-tuc/{alias}.html',['as'=>'getNewsDetail', 'uses'=>'IndexController@getNewsDetail']);
 	Route::get('tin-tuc/{alias}',['as'=>'getListNews', 'uses'=>'IndexController@getListNews']);
 
+	Route::get('nganh-nghe/{alias}', 'IndexController@nganhnghe');
+
 	Route::get('lien-he',['as'=>'getContact', 'uses'=>'IndexController@getContact']);
 	Route::post('lien-he',['as'=>'postContact', 'uses'=>'ContactController@postContact']);
 
@@ -383,6 +382,7 @@ Route::group(['middleware' => 'localization', 'prefix' => Session::get('locale')
 	Route::get('du-an', "indexcontroller@project");
 	Route::get('bang-gia', "indexcontroller@bangGia");
 	Route::get('video', "indexcontroller@video");
+	Route::get('hinh-anh', "indexcontroller@gallery");
 	// Route::get('thu-vien-anh',['as'=>'getThuvienanh', 'uses'=>'IndexController@getThuvienanh']);
 	// Route::get('hoi-vien',['as'=>'getHoivien', 'uses'=>'IndexController@getHoivien']);
 	// Route::get('{id}.html',['as'=>'getProductDetail', 'uses'=>'IndexController@getProductDetail']);
