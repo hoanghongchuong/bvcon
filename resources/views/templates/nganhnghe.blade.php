@@ -19,21 +19,26 @@
 <div class="box-content mt-0">
 	<div class="about-left">
 		<div class="boxInfoGrid">
-            <h3>Chúng tôi hiểu rằng</h3>
-			<p class="doanvangioithieu">
-				Mỗi ngôi nhà được dựng xây là NIỀM TIN của biết bao gia đình.<br>
-				Mỗi công trình lớn thành công là GIÁ TRỊ trường tồn của một quốc gia. <br>
-				Khi CÙNG nhau, chúng ta có thể xây dựng một tương lai bền vững.<br>
-				Tại HAWEE, chúng tôi đón NHẬN niềm tin, TRAO những giá trị bền vững, CÙNG bạn tạo nên thế giới tốt đẹp hơn.
-			</p>
-			<p style="color:white; text-align:center; font-size:22px; padding-top:20px; padding-bottom:23px; font-weight:bold;"> HAWEE - Truly your partner</p>
+            {!! $about['mota_'.$lang] !!}
         </div>
 	</div>
 	<div class="video-right">
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/FPlEouHnYB8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/FPlEouHnYB8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+		<a class="background-item" data-fancybox="video" href="https://www.youtube.com/embed/{{$video['link']}}" style="background-image: url('{{asset('upload/hinhanh/'.$video['photo'])}}'); transition-duration: .5s;">
+            <span class="plus-icon" style="transition-duration: .5s;">
+                <img src="{{asset('public/images/play.png')}}">
+            </span>
+            <div class="text" style="transition-duration: .5s">
+                <h4 class="title">{{$video['name_'.$lang]}}</h4>
+                <div class="detail-list">
+                    <p class="time"><i class="fa fa-clock-o"></i>{{date('d/m/Y', strtotime($video['created_at']))}}</p>
+                </div>
+            </div>
+        </a>
 	</div>
 </div>
 <div class="box-content">
+	@if(count($data) > 2)
 	<div class="home--section-1 popular-news-box">
 		<div class="home-news-item" data-aos="fade-up">
 			<a class="text" href="{{url('tin-tuc/'.@$data[0]['alias_vi'].'.html')}}">
@@ -69,6 +74,7 @@
 			</div>
 		</div>
 	</div>
+	@endif
 	<div class="capacity-block" style="background-image: url('{{asset('public/images/bg-1.jpg')}}'); margin-top: 4px;">
 		<div class="capacity-top">
 			

@@ -812,6 +812,10 @@ a.vk-btn{
     min-height: 370px;
     width: 100%;
 }
+.video-right .background-item{
+    height: 370px;
+    margin-bottom: 0;
+}
 .home--section-1 {
     overflow: hidden;
     padding-bottom: 1px;

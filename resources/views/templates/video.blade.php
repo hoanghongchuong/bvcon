@@ -27,7 +27,7 @@
 	                <div class="text" style="transition-duration: .5s">
 	                    <h4 class="title">{{$item['name_'.$lang]}}</h4>
 	                    <div class="detail-list">
-	                        <p class="time"><i class="fa fa-clock-o"></i>19.03.2019</p>
+	                        <p class="time"><i class="fa fa-clock-o"></i>{{date('d/m/Y', strtotime($item['created_at']))}}</p>
 	                    </div>
 	                </div>
                 </a>

@@ -467,10 +467,12 @@ class IndexController extends Controller {
     }
     public function nganhnghe($alias)
     {
-    	$data = News::where('com','nganh-nghe')->where('status',1)->take(3)->orderBy('id','desc')->get();
-    	
+    	$cate = NewsCate::where('com','nganh-nghe')->where('alias_vi', $alias)->where('status',1)->take(3)->orderBy('id','desc')->first();
+    	$data = News::where('com','nganh-nghe')->where('cate_id', $cate->id)->where('status',1)->take(3)->orderBy('id','desc')->get();
+    	$about = About::where('com','gioi-thieu')->first();
+    	$video = Video::orderBy('id','desc')->first();
     	$lang = Session::get('locale');
     	$partners = DB::table('partner')->get();
-    	return view('templates.nganhnghe', compact('partners','data','lang'));
+    	return view('templates.nganhnghe', compact('partners','data','lang','about','video'));
     }
 }
