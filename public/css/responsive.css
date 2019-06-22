@@ -5,6 +5,19 @@
 	.show-popup .img-show{
 		width: 100%;
 	}
+	.capacity-block .capacity-bottom .item-block {
+	    width: 100%;
+	}
+	.capacity-block .capacity-bottom .item-block .item {
+	    padding: 20px 30px;
+	    border-bottom: 1px solid #fff;
+	}
+	.capacity-block .capacity-top {
+	    padding: 33px;
+	}
+	.capacity-block .capacity-top .number {
+	    font-size: 50px;
+	}
 }
 @media (min-width: 768px) {
 	
@@ -23,5 +36,7 @@
 		float:left;
 		min-height: 370px;
 	}
-	
+	.home-news-item{
+		/*width: 50%;*/
+	}
 }

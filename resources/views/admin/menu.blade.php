@@ -77,7 +77,7 @@
             <li><a href="backend/lienket?type=hinh-anh"><i class="fa fa-circle-o"></i> <span>Thư viện ảnh</span></a></li>
           </ul>
         </li>
-        <!-- <li><a href="backend/partner"><i class="fa fa-circle-o"></i> <span>Đối tác</span></a></li>        -->
+        <li><a href="backend/partner"><i class="fa fa-circle-o"></i> <span>Đối tác</span></a></li>       
         <li><a href="backend/feedback"><i class="fa fa-circle-o"></i> <span>Ý kiến khách hàng</span></a></li>       
         @if($is_admin->can('can_contact'))
         <li class="{{ Request::segment(2) == 'contact' ? 'active' : '' }}"><a href="backend/contact"><i class="fa fa-envelope"></i> <span>Quản lý liên hệ</span></a></li>

@@ -26,6 +26,7 @@
                     {!! $data['content_'.$lang] !!}
                 </div>
             </div>
+            @if($hots)
             <div class="col-xs-12 col-md-3">
                 <h3 class="news_hot">Tin nổi bật</h3>
                 <div class="list-hot-news">
@@ -34,6 +35,7 @@
                     @endforeach
                 </div>
             </div>
+            @endif
         </div>
     </div>
 </div>

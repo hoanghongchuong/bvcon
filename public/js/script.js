@@ -31,6 +31,30 @@ $(document).ready(function($){
 		    }
 		});
 
+  var owl = $(".owl-carousel-partner");
+      owl.owlCarousel({
+        margin:0,               
+        loop:true,              
+        nav:true,               
+        // navText:['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'], 
+        autoplay:true,             
+        autoplayTimeout:1500,
+      autoplayHoverPause:true,
+      autoplaySpeed: 2000,
+      responsiveClass:true,         
+        responsive:{
+            0:{
+                items:2,                                                            
+            },
+            600:{
+                items:4,          
+            },
+            1000:{
+                items:6,
+            }
+        }
+    });
+
 	$('.show-box-search').on('click', function(){
 		$('.box-search').toggle();
 	});

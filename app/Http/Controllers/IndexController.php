@@ -467,7 +467,10 @@ class IndexController extends Controller {
     }
     public function nganhnghe($alias)
     {
+    	$data = News::where('com','nganh-nghe')->where('status',1)->take(3)->orderBy('id','desc')->get();
     	
-    	return view('templates.nganhnghe');
+    	$lang = Session::get('locale');
+    	$partners = DB::table('partner')->get();
+    	return view('templates.nganhnghe', compact('partners','data','lang'));
     }
 }
