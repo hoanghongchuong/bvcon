@@ -5,6 +5,7 @@
 $setting = Cache::get('setting');
 $lang = Session::get('locale');
 $cateNganhNghe = \App\NewsCate::where('com','nganh-nghe')->where('status',1)->get();
+$slogans = \App\Slogan::get();
 ?>
 <!-- menu-mobile -->
 <div class="visible-xs visible-sm menu-mobile menu-sidebar">
@@ -71,25 +72,14 @@ $cateNganhNghe = \App\NewsCate::where('com','nganh-nghe')->where('status',1)->ge
             <div class="item @if($k == 0)active @endif vk-banner-item">
                 <img  alt="Third slide" src="{{asset('upload/hinhanh/'.$slider['photo'])}}">
                 <div class="des-slider">
+                    @foreach($slogans as $slogan)
                     <div class="col-md-4 fadeInUp animated wow animated" data-wow-delay=".15s">
-                        <p class="title-s">Tầm nhìn</p>
+                        <p class="title-s">{{$slogan['name_'.$lang]}}</p>
                         <div class="mota">
-                            <p>Trở thành tập đoàn có uy tín và chất lượng quốc tế trong lĩnh vực cơ điện tử</p>
+                            <p>{!! $slogan['content_'.$lang] !!}</p>
                         </div>
                     </div>
-                    <div class="col-md-4 fadeInUp animated wow animated" data-wow-delay=".35s"">
-                        <p class="title-s">Sứ mệnh</p>
-                        <div class="mota">
-                            <p>Kiến tạo lên những sản phẩm hoàn hảo mang thương hiệu việt</p>
-                            <p>Nâng cao chất lượng cuộc sống cho nhân viên và cộng đồng</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 fadeInUp animated wow animated" data-wow-delay=".50s">
-                        <p class="title-s">Giá trị cốt lõi</p>
-                        <div class="mota">
-                            <p>Trở thành tập đoàn có uy tín và chất lượng quốc tế trong lĩnh vực cơ điện tử</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>                    
             </div>
             @endforeach

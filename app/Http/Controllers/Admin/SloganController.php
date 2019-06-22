@@ -31,7 +31,6 @@ class SloganController extends Controller
         $slogan->photo = $img_name; 
         $slogan->content_vi = $request->content_vi;
     	$slogan->content_en = $request->content_en;
-        dd($slogan);
     	$slogan->save();
     	return redirect(route('admin.slogan.index'))->with('mess','Thêm thành công');
     }

@@ -83,8 +83,8 @@
         <li class="{{ Request::segment(2) == 'contact' ? 'active' : '' }}"><a href="backend/contact"><i class="fa fa-envelope"></i> <span>Quản lý liên hệ</span></a></li>
         @endif
         <!-- <li><a href="backend/newsletter?type=newsletter"><i class="fa fa-circle-o"></i> <span>Đăng ký nhận tin</span></a></li> -->
-        <li class="{{ Request::segment(2) == 'slider' ? 'active' : '' }}"><a href="backend/slider?type=gioi-thieu"><i class="fa fa-circle-o"></i> <span>Quản lý slider</span></a></li>
-        <!-- @if($is_admin->can('can_slider'))
+        
+        @if($is_admin->can('can_slider'))
         <li class="treeview {{ Request::segment(2) == 'slider' ? 'active' : '' }}">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
@@ -92,11 +92,11 @@
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            
-            <li><a href="backend/banner"><i class="fa fa-gear" aria-hidden="true"></i> <span>Quản lý banner</span></a></li>
+            <li class="{{ Request::segment(2) == 'slider' ? 'active' : '' }}"><a href="backend/slider?type=gioi-thieu"><i class="fa fa-circle-o"></i> <span>Quản lý slider</span></a></li>
+            <li><a href="backend/slogan"><i class="fa fa-gear" aria-hidden="true"></i> <span>slogan</span></a></li>
           </ul>
         </li>
-        @endif -->
+        @endif
         <!-- <li><a href="backend/position"><i class="fa fa-gear" aria-hidden="true"></i> <span>Vị trí quảng cáo</span></a></li> -->
         @if($is_admin->can('admin_manager'))
         <li><a href="{{ asset('backend/setting') }}"><i class="fa fa-gear" aria-hidden="true"></i> <span>Quản lý thiết lập</span></a></li>
